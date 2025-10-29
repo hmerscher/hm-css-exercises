@@ -1,1 +1,14 @@
-/* Add CSS Styling */
+.oddNums {
+  background-color: rgb(255, 135, 135);
+  font-family: "Verdana", "DejaVu Sans", sans-serif;
+} /* Add CSS Styling */
+#two {
+  color: #1b67da;
+  font-size: 36px;
+}
+.third{font-size: 24px}
+#four {
+  background-color: #41ff6a;
+  font-size: 24px;
+  font-weight: bold;
+}

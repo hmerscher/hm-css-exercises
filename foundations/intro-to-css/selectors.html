@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS Selector Demo</title>
+    <style>
+      /* --- Base layout so things look tidy --- */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font: 16px/1.45 system-ui, sans-serif;
+        margin: 2rem;
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+      section {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 1rem;
+      }
+      section h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      /* =========================================================
+     1) GROUPING SELECTORS: comma means "OR"
+     ========================================================= */
+      /* h1, h2, and .subtitle all get the same styles */
+      .grouping-demo h1,
+      .grouping-demo h2,
+      .grouping-demo .subtitle {
+        color: #1a237e;
+        margin-bottom: 0.25rem;
+        border-bottom: 2px solid #c5cae9;
+      }
+
+      /* =========================================================
+     2) CHAINING SELECTORS: no space means "AND" (same element)
+     ========================================================= */
+      /* Must have BOTH classes .btn AND .primary */
+      .chaining-demo .btn.primary {
+        background: #1976d2;
+        color: white;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+      /* Order of classes in HTML doesn't matter: .primary btn works too */
+
+      /* input[type="text"] AND .error */
+      .chaining-demo input[type="text"].error {
+        border: 2px solid #c62828;
+        outline: none;
+      }
+
+      /* SAME element must match .badge AND .pill */
+      .chaining-demo .badge.pill {
+        display: inline-block;
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        background: #e8f5e9;
+        border: 1px solid #66bb6a;
+      }
+
+      /* Pseudo-class can also be chained: .btn:hover (same element) */
+      .chaining-demo .btn.primary:hover {
+        transform: translateY(-1px);
+      }
+
+      /* =========================================================
+     3) DESCENDANT SELECTORS: space means "inside of"
+     ========================================================= */
+      /* Any <em> anywhere inside .card (any depth) */
+      .descendant-demo .card em {
+        color: #455a64;
+        background: #eceff1;
+        padding: 0 0.2rem;
+        border-radius: 0.25rem;
+      }
+
+      /* Links inside <nav> (could be nested in ul/li) */
+      .descendant-demo nav a {
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+      }
+      .descendant-demo nav a[aria-current="page"] {
+        background: #bbdefb;
+      }
+
+      /* Child selector example for contrast (direct children only) */
+      .descendant-demo .card > h3 {
+        color: #2e7d32;
+      }
+      /* A deeper h3 (not direct child) will NOT match ^ */
+    </style>
+  </head>
+  <body>
+    <h1>CSS Selector Demo</h1>
+    <p>
+      Below are three boxes showing <strong>grouping</strong>, <strong>chaining</strong>, and
+      <strong>descendant</strong> selectors in action.
+    </p>
+
+    <div class="grid">
+      <!-- 1) GROUPING -->
+      <section class="grouping-demo">
+        <h2>1) Grouping selectors (comma = “OR”)</h2>
+        <p><em>Rule:</em> <code>.grouping-demo h1, .grouping-demo h2, .grouping-demo .subtitle { ... }</code></p>
+        <h1>H1 styled via grouping</h1>
+        <h2>H2 styled via grouping</h2>
+        <div class="subtitle">.subtitle styled via grouping</div>
+        <p>
+          <strong>Expected:</strong> All three above share the same color and bottom border because they’re grouped with
+          commas.
+        </p>
+      </section>
+
+      <!-- 2) CHAINING -->
+      <section class="chaining-demo">
+        <h2>2) Chaining selectors (no space = “AND”)</h2>
+        <p>
+          <em>Rules:</em> <code>.btn.primary { ... }</code>, <code>input[type="text"].error { ... }</code>,
+          <code>.badge.pill { ... }</code>
+        </p>
+
+        <p>
+          <button class="btn primary">I match .btn.primary</button>
+          <!-- Same effect if class order flips: -->
+          <button class="primary btn">I also match (class order doesn’t matter)</button>
+        </p>
+
+        <p>
+          <input type="text" class="error" placeholder="I match input[type=text].error" />
+          <br />
+          <input type="text" placeholder="I do NOT match (no .error)" />
+        </p>
+
+        <p>
+          <span class="badge pill">I match .badge.pill</span>
+          &nbsp;|&nbsp;
+          <span class="badge">I do NOT match (missing .pill)</span>
+        </p>
+
+        <p><strong>Expected:</strong> Only elements that meet <em>all</em> chained conditions get styled.</p>
+      </section>
+
+      <!-- 3) DESCENDANT -->
+      <section class="descendant-demo">
+        <h2>3) Descendant selectors (space = “inside”)</h2>
+        <p>
+          <em>Rules:</em> <code>.card em { ... }</code>, <code>nav a { ... }</code>, and a direct-child contrast
+          <code>.card > h3</code>.
+        </p>
+
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a aria-current="page" href="#">Products (current)</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+
+        <article class="card" style="border: 1px solid #ccc; padding: 0.75rem; border-radius: 0.5rem; margin-top: 0.5rem">
+          <h3>Direct child h3 (matches <code>.card &gt; h3</code>)</h3>
+          <p>Some text with an <em>emphasized</em> word (matches <code>.card em</code>).</p>
+
+          <div>
+            <h3>Nested h3 (NOT a direct child)</h3>
+            <p>Still inside the card, <em>this em also matches</em> because it’s a descendant.</p>
+          </div>
+        </article>
+
+        <p>
+          <strong>Expected:</strong> All <code>&lt;em&gt;</code> inside <code>.card</code> get styled (any depth). The first
+          <code>h3</code> (direct child) is green; the nested one isn’t (because <code>&gt;</code> targets direct children
+          only). Links inside <code>&lt;nav&gt;</code> are styled; the current page link has a background.
+        </p>
+      </section>
+    </div>
+
+    <hr />
+
+    <h2>Bonus: Direction matters for descendants</h2>
+    <p>
+      <code>.card p</code> means “p inside .card”. The reverse <code>p .card</code> would mean “.card inside p” (rare/invalid
+      unless <code>.card</code> is on an inline like <code>&lt;span&gt;</code> inside the paragraph).
+    </p>
+  </body>
+</html>

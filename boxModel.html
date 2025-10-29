@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Model Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        border: 1px dashed #3333ff;
+        width: 100%;
+      }
+      .box {
+        background-color: #faaaaa;
+        border: 5px solid #910808;
+        border-radius: 4px;
+        padding: 20px;
+        margin: 20px auto;
+        width: 300px;
+        text-align: center;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">This is 1 box model example.</div>
+      <div class="box">This is 2 box model example.</div>
+      <div class="box">This is 2 box model example.</div>
+    </div>
+  </body>
+</html>

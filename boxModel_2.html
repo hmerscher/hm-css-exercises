@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Display Types Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .box {
+      padding: 10px;
+      background: lightblue;
+      border: 2px solid steelblue;
+      margin: 5px;
+      color: #002244;
+    }
+    .block {
+      display: block;
+      background: lightgreen;
+    }
+    .inline-block {
+      display: inline-block;
+      background: lightcoral;
+      width: 120px;
+      height: 50px;
+      text-align: center;
+    }
+    .inline {
+      display: inline;
+      background: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>display: block</h2>
+  <div class="box block">Box 1</div>
+  <div class="box block">Box 2 (below Box 1)</div>
+
+  <h2>display: inline-block</h2>
+  <div class="box inline-block">Box 1</div>
+  <div class="box inline-block">Box 2</div>
+  <div class="box inline-block">Box 3</div>
+
+  <h2>display: inline</h2>
+  <p>
+    This is some text with 
+    <div class="box inline">inline div</div> 
+    inside it — notice that it stays 
+    within the line of text rather than breaking to a new one.
+  </p>
+<div style="background-color: red; width: 200px">huh?</div>
+</body>
+</html>
