@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HM Flexbox Example</title>
+    <link rel="stylesheet" href="hm_flexBox.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="card">
+                <h3>Row Layout</h2>
+                    <p>&#x2190; <span class="mainAxis">justify-content</span> &#x2192;</p>
+                    <div class="rowLayout">
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                    </div>
+                    <p>&#8593; <span>align-items</span> &#8595;</p>
+            </div>
+            <div class="card">
+                <h3>Column Layout</h2>
+                    <p>&#x2190; <span>align-items</span> &#x2192;</p>
+                    <div class="columnLayout">
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                    </div>
+                    <p>&#8593; <span class="mainAxis">justify-content</span> &#8595;</p>
+            </div>
+            <div class="card">
+                <h3>Align Content (row)</h2>
+                    <p>&#x2190; <span>align-items</span> &#x2192;</p>
+                    <div class="alignContentLayout">
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                        <div> <img src="images/one.svg" /> </div>
+                        <div> <img src="images/two.svg" /> </div>
+                        <div> <img src="images/three.svg" /> </div>
+                        <div> <img src="images/four.svg" /> </div>
+                    </div>
+                    <p>&#8593; <span class="mainAxis">justify-content</span> &#8595;</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="description">
+        <h3>Flex Direction</h3>
+        <p>If the flex-direction is set to row the main axis is horizontal, if it is set to column, the main axis is
+            vertical: </p>
+
+        <ul>
+            <li><strong>row</strong> - main axis is horizontal (default)</li>
+            <li><strong>column</strong> - main axis is vertical</li>
+            <li><strong>justify-content</strong> - aligns items on the main axis</li>
+        </ul>
+        <p>Dependent upon the flex-direction, the axis "opposite" the main axis is called the cross-axis. 
+            Since the default main axis is row (horizontal) the default cross-axis is column (vertical).</p>
+        <h3>Using justify-content...</h3>
+        <p>...the content can be spaced along the main axis:
+        <ul>
+            <li>flex-start - (default)</li>
+            <li>flex-end</li>
+            <li>center </li>
+            <li>space-between </li>
+            <li>space-around </li>
+            <li>space-evenly</li>
+        </ul>
+        <h3>Using align-items...</h3>
+        <p>...the content can be spaced along the cross-axis:</p>
+        <ul>
+            <li>flex-start - (default)</li>
+            <li>flex-end</li>
+            <li>center </li>
+            <li><strong>baseline</strong> - aligns the baselines of each items text</li>
+            <li>space-between </li>
+            <li>space-around </li>
+            <li>space-evenly</li>
+        </ul>
+
+<h3>flex-wrap: wrap:</h3>
+        <p>If you have specified "wrap" then you can  use align-content.
+            This will align the rows (or columns) within the flex container when there is extra space in the cross-axis.
+            The values are the same as for justify-content.
+        </p>
+        <p>You can then also use gap properties to set spacing between the rows and columns.
+        </p>
+
+    </div>
+
+    <div class="container">
+        <div class="cardContainer">
+            <div class="cardWide">
+                <h3>Flex Declaration</h2>
+                    <p><span class="mainAxis">flex-grow</span> &#x2192;<span class="mainAxis">flex-shrink</span> &#x2192; </span> <span class="mainAxis">flex-basis</span></p>
+                    <div class="rowLayoutFlex">
+                       
+                        <div ><h3>Hello!</h3>Short statement </div>
+                        <div >Short statement, plus </div>
+                        <div >A longer Lorem ipsumLongWord dolor sit amet consec culpa? </div>
+                        <div >Home </div>
+                        <div >Short statement, plus </div>
+                        <div >Short statement </div>
+                        <div >A longer Lorem ipsum dolor sit  </div>
+                        <div >Home </div>
+                       
+                    </div>
+                    <p>&#8593; <span>align-items</span> &#8595;</p>
+            </div>
+            </div>
+
+</body>
+
+</html>

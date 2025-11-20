@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: lightsteelblue;
+}
+
+.cardContainer {
+  display: flex;
+  width: 1580px;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.card {
+  background-color: lightcoral;
+  width: 450px;
+  height: 550px;
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  padding-top: 10px;
+}
+.cardWide {
+  background-color: lightcoral;
+  width: 50%;
+  height: 550px;
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  padding-top: 10px;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+.rowLayout,
+.columnLayout {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px dashed white;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 10px 50px 15px;
+  justify-content: space-between;
+  align-items: start;
+  align-content: space-between;
+  height: 350px;
+  width: 360px;
+}
+
+.rowLayout {
+  flex-direction: row;
+}
+.columnLayout {
+  flex-direction: column;
+}
+.rowLayoutFlex {
+  width: 80%;
+  margin: 10px auto;
+}
+.alignContentLayout {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px dashed white;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 10px 50px 15px;
+  gap: 8px;
+}
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 120%;
+}
+
+p span {
+  font-size: 60%;
+}
+
+.mainAxis {
+  font-weight: bold;
+  color: black;
+}
+
+.description {
+  margin: 20px auto;
+  width: 1040px;
+}
+.description p {
+  display: block;
+  font-size: 100%;
+}
+ul {
+  margin: 10px 20px;
+}
+h3 {
+  margin-top: 20px;
+}
+/* Flex Declaration properties */
+.rowLayoutFlex {
+  display: flex;
+  background-color: coral;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.rowLayoutFlex div {
+  border: 4px solid rgb(250, 67, 0);
+  /* the long written 3 flex values shown below can just be written flex: 1;  */
+  flex-grow: 1;
+  flex-shrink: 1;
+  /*default for basis would be auto - which takes the content size into account, creating different sized children */
+  flex-basis: 0;
+  /* width: 200px; -- this would override the flex-basis, use one or the other though */
+}

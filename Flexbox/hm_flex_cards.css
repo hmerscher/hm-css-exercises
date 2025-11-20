@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: darkgrey;
+  margin: 0;
+  padding: 16px 0;
+}
+.container,
+.header {
+  display: flex;
+  background-color: rgb(233, 233, 233);
+  width: 60%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.container {
+  padding: 16px;
+}
+.header {
+  flex-wrap: nowrap;
+  background-color: lightblue;
+  justify-content: space-between;
+}
+
+.header ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.header li {
+  margin: 0 12px;
+  font-weight: 400;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.card {
+  background-color: white;
+  flex: 1 1 200px;
+  margin: 8px;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: black;
+}
+
+/* ----Styles for the Save and Cancel tab */
+/*Tunables --- */
+:root {
+  --card-bg: rgb(233, 233, 233); /* background color of the card */
+  --wedge: 48px; /* how far the angled wedge sticks out */
+  --radius: 0; /* card corner radius */
+  --pad: 12px; /* inner padding */
+}
+
+.angled-card {
+  position: relative;
+  background: var(--card-bg);
+  padding: var(--pad);
+  isolation: isolate; /* creates a stacking context so z-index:-1 is safe */
+}
+
+.angled-card::before {
+  content: "";
+  position: absolute;
+  top: 0px; /* bleed */
+  bottom: -1px; /* bleed */
+  left: calc(-0.05 * var(--wedge) - 2px); /* bleed */
+  width: calc(var(--wedge) + 54px); /* a bit wider so the skew fully covers */
+  background: var(--card-bg);
+  transform: skewX(-45deg);
+  transform-origin: left top;
+  z-index: -1; /* sits behind content but above the page because of isolation */
+}
+
+.actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12px; /* space between buttons */
+  flex-wrap: wrap; /* wrap on narrow screens */
+}
+
+/* Alignment utilities for the two buttons */
+.align-left .actions {
+  justify-content: flex-start;
+}
+.align-center.actions,
+.align-center .actions {
+  justify-content: center;
+}
+.align-right .actions {
+  justify-content: flex-end;
+}
+.align-spread .actions {
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: black;
+  color: white;
+  font: 600 0.8rem/1 "Roboto", system-ui, sans-serif;
+}
+.btn:hover {
+  background: rgb(0, 161, 153);
+  color: white;
+}
+
+.btn-ghost {
+  color: black;
+  background: transparent;
+  border: 2px solid black;
+}
+/* .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+} */

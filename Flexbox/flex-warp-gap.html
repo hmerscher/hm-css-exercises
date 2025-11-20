@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox: Row vs Column — strict 20px gaps</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f4f6fa;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .example-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-around;
+      }
+      .example {
+        flex: 1 1 420px;
+        background: #eef2f8;
+        border: 2px solid steelblue;
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .example h2 {
+        text-align: center;
+        margin: 0 0 8px;
+      }
+
+      /* Shared container rules that ensure equal gaps */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        /* equal spacing in both directions */
+        row-gap: 20px;
+        column-gap: 20px;
+
+        /* IMPORTANT: prevent free-space redistribution */
+        justify-content: flex-start;
+        align-content: flex-start;
+
+        /* IMPORTANT: keep items from stretching by baseline/center quirks */
+        align-items: flex-start;
+
+        background-color: lightsteelblue;
+        padding: 20px;
+        border: 2px solid steelblue;
+        min-height: 280px;
+      }
+
+      /* Row demo: fixed cross-size = height */
+      .row-container .item {
+        width: 100px; /* main-axis size can vary */
+        height: 80px; /* cross-axis fixed size */
+        background: lightcoral;
+        color: #fff;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+      /* Column demo: fixed cross-size = width */
+      .column-container {
+        flex-direction: column;
+        height: 420px; /* force wrapping to show line gaps */
+      }
+      .column-container .item {
+        width: 90px; /* cross-axis fixed size */
+        height: 100px; /* main-axis size can vary */
+        background: teal;
+        color: #fff;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flexbox: Row vs Column — flex-wrap + strict 20px gap</h1>
+
+    <div class="example-section">
+      <!-- ROW EXAMPLE -->
+      <div class="example">
+        <h2>Row Layout (gap = 20px)</h2>
+        <p><code>flex-direction: row;</code> Lines wrap downward. Gaps are 20px horizontally and between rows.</p>
+        <div class="container row-container">
+          <!-- 20 items -->
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+          <div class="item">6</div>
+          <div class="item">7</div>
+          <div class="item">8</div>
+          <div class="item">9</div>
+          <div class="item">10</div>
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+          <div class="item">6</div>
+          <div class="item">7</div>
+          <div class="item">8</div>
+          <div class="item">9</div>
+          <div class="item">10</div>
+        </div>
+      </div>
+
+      <!-- COLUMN EXAMPLE -->
+      <div class="example">
+        <h2>Column Layout (gap = 20px)</h2>
+        <p><code>flex-direction: column;</code> Lines wrap sideways. Gaps are 20px vertically and between columns.</p>
+        <div class="container column-container">
+          <!-- 24 items -->
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+          <div class="item">D</div>
+          <div class="item">E</div>
+          <div class="item">F</div>
+          <div class="item">G</div>
+          <div class="item">H</div>
+          <div class="item">I</div>
+          <div class="item">J</div>
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+          <div class="item">D</div>
+          <div class="item">E</div>
+          <div class="item">F</div>
+          <div class="item">G</div>
+          <div class="item">H</div>
+          <div class="item">I</div>
+          <div class="item">J</div>
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+          <div class="item">D</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
